@@ -2,10 +2,11 @@
 
 An implementation of the fastq reader found on Heng Li's site at https://github.com/lh3/readfq
 
-
-## Example
+## Installation
 
     go get github.com/lskatz/FqReader.go
+
+## Example
 
 The following code reads a fastq file via `stdin` and then prints it out again.
 Essentially, this script transforms any fastq text into a four-line-per-entry
