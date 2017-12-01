@@ -17,10 +17,18 @@ output.
       "bufio"
       "fmt"
       "os"
+      "flag"
+      "path"
       "github.com/lskatz/FqReader.go"
     )
 
     func main() {
+      flag.Usage = func() {
+        fmt.Fprintf(os.Stderr, "Usage: zcat file.fastq | %s > fourLines.fastq\n", path.Base(os.Args[0]))
+        flag.PrintDefaults()
+      }
+      flag.Bool("Help", false, "Help menu")
+      flag.Parse()
 
       var fqr FqReader.FqReader
       fqr.Reader = bufio.NewReader(os.Stdin)
